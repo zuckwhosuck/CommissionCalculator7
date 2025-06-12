@@ -1,6 +1,6 @@
 'use client';
 
-import CommissionCalculator from './components/commission-calculator';
+import CommissionCalculator from "./pages/commission-calculator"
 
 export default function Home() {
   return (

@@ -1,12 +1,14 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { Toaster } from "@/components/ui/toaster"
+import { TooltipProvider } from "@/components/ui/tooltip"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Commission Calculator - 12-Step Commission Calculation Tool",
-  description: "Professional commission calculator with 12-step calculation process. Calculate your final commission amount with detailed breakdown of all deductions and fees.",
+  title: "Commission Calculator",
+  description: "Calculate commissions easily",
 }
 
 export default function RootLayout({
@@ -20,7 +22,12 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <TooltipProvider>
+          {children}
+          <Toaster />
+        </TooltipProvider>
+      </body>
     </html>
   )
 } 
