@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(215, 70%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(355.7, 100%, 97.3%);
+  --warning: hsl(32, 95%, 44%);
+  --warning-foreground: hsl(210, 20%, 98%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Custom colors for commission calculator */
+  --calculator-primary: hsl(215, 70%, 50%);
+  --calculator-primary-dark: hsl(215, 70%, 40%);
+  --calculator-secondary: hsl(142, 70%, 45%);
+  --calculator-accent: hsl(32, 95%, 44%);
+  --calculator-surface: hsl(0, 0%, 100%);
+  --calculator-background: hsl(220, 13%, 98%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(215, 70%, 50%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(355.7, 100%, 97.3%);
+  --warning: hsl(32, 95%, 44%);
+  --warning-foreground: hsl(210, 20%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  
+  /* Dark mode custom colors */
+  --calculator-primary: hsl(215, 70%, 55%);
+  --calculator-primary-dark: hsl(215, 70%, 45%);
+  --calculator-secondary: hsl(142, 70%, 50%);
+  --calculator-accent: hsl(32, 95%, 50%);
+  --calculator-surface: hsl(240, 10%, 3.9%);
+  --calculator-background: hsl(240, 10%, 2%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: 'Roboto', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .calculator-floating-label {
+    @apply relative;
+  }
+  
+  .calculator-floating-label input,
+  .calculator-floating-label select {
+    @apply w-full px-3 pt-5 pb-2 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all;
+  }
+  
+  .calculator-floating-label label {
+    @apply absolute left-3 top-3 text-muted-foreground text-sm transition-all pointer-events-none;
+  }
+  
+  .calculator-floating-label input:focus + label,
+  .calculator-floating-label input:not(:placeholder-shown) + label {
+    @apply top-1 text-xs text-primary;
+  }
+  
+  .calculator-floating-label select + label {
+    @apply top-1 text-xs text-primary;
+  }
+  
+  .material-shadow {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  }
+  
+  .material-shadow-lg {
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+  }
+}

@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(220, 13%, 98%);
+  --foreground: hsl(220, 13%, 18%);
+  --muted: hsl(220, 13%, 90%);
+  --muted-foreground: hsl(220, 13%, 40%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(220, 13%, 18%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(220, 13%, 18%);
+  --border: hsl(220, 13%, 90%);
+  --input: hsl(220, 13%, 90%);
+  --primary: hsl(215, 100%, 60%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(220, 13%, 95%);
+  --secondary-foreground: hsl(220, 13%, 18%);
+  --accent: hsl(280, 80%, 60%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(355.7, 100%, 97.3%);
+  --warning: hsl(32, 95%, 44%);
+  --warning-foreground: hsl(210, 20%, 98%);
+  --ring: hsl(215, 100%, 60%);
+  --radius: 0.75rem;
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-blur: 16px;
+  
+  /* Custom colors for commission calculator */
+  --calculator-primary: hsl(215, 70%, 50%);
+  --calculator-primary-dark: hsl(215, 70%, 40%);
+  --calculator-secondary: hsl(142, 70%, 45%);
+  --calculator-accent: hsl(32, 95%, 44%);
+  --calculator-surface: hsl(0, 0%, 100%);
+  --calculator-background: hsl(220, 13%, 98%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-radius: var(--radius);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    border: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  .glass-card:hover {
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.22);
+  }
+  .wow-floating-label {
+    @apply relative;
+  }
+  .wow-floating-label input {
+    @apply h-12 w-full rounded-lg border border-input bg-white/80 px-4 pt-6 pb-2 text-base shadow-sm ring-offset-background placeholder:text-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 transition-all duration-200;
+  }
+  .wow-floating-label label {
+    @apply pointer-events-none absolute left-4 top-4 text-base text-muted-foreground bg-transparent transition-all duration-200;
+  }
+  .wow-floating-label input:focus ~ label,
+  .wow-floating-label input:not(:placeholder-shown) ~ label {
+    @apply -top-2 left-3 bg-white px-1 text-xs text-accent;
+  }
+  .wow-btn-primary {
+    @apply bg-accent text-white rounded-lg py-3 px-6 font-semibold shadow-lg hover:bg-primary transition-all duration-200;
+  }
+  .wow-btn-outline {
+    @apply border border-accent text-accent rounded-lg py-3 px-6 font-semibold bg-white hover:bg-accent hover:text-white transition-all duration-200;
+  }
+  .wow-section-title {
+    @apply flex items-center gap-2 text-2xl font-bold mb-6 text-accent;
+  }
+  .wow-select {
+    @apply rounded-lg border border-input bg-white/80 px-4 py-3 text-base shadow-sm focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200;
+  }
+  .wow-select-content {
+    @apply rounded-lg border bg-white shadow-lg z-[9999] p-2;
+  }
+} 
